@@ -1,0 +1,46 @@
+<!-- Header -->
+<div class="header">
+  <div class="logo-container">
+    <img src="assets/images/ignite-xt-logo.png" alt="IgniteXT Logo" class="logo">
+    <span class="logo-text"><span class="logo-i">I</span>gnite<span class="logo-xt">XT</span></span>
+  </div>
+  <button class="logout-btn" (click)="logout()">Logout</button>
+</div>
+
+<!-- Branches -->
+<h2 class="branches-heading">Branches</h2>
+<div class="branches-panel">
+  <div class="branch-card" *ngFor="let branch of branches" (click)="selectBranch(branch)">
+    {{ branch }}
+  </div>
+</div>
+
+<!-- Years -->
+<div class="years-panel" *ngIf="selectedBranch">
+  <h3>Year - {{selectedBranch}}</h3>
+  <div class="year-card" *ngFor="let year of years" (click)="selectYear(year)">
+    {{ year }}
+  </div>
+</div>
+
+<!-- Subjects -->
+<div class="subjects-panel" *ngIf="selectedYear">
+  <h4>Subjects - {{selectedYear}}</h4>
+  <div class="subject-card" *ngFor="let subject of subjects" (click)="selectSubject(subject)">
+    {{ subject }}
+  </div>
+</div>
+
+<!-- Uploaded Materials -->
+<div class="materials-panel" *ngIf="uploadedMaterials.length > 0">
+  <h4>Uploaded Materials for {{selectedSubject}}</h4>
+  <ul>
+    <li *ngFor="let material of uploadedMaterials">
+      <a [href]="material.url" target="_blank">{{ material.filename }}</a>
+    </li>
+  </ul>
+</div>
+
+<p *ngIf="selectedSubject && uploadedMaterials.length === 0" style="text-align:center; margin-top:20px;">
+  No materials uploaded yet.
+</p>

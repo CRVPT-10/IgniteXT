@@ -1,0 +1,184 @@
+/* ===== HEADER ===== */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: #ff416c;
+  color: white;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+.logo-text {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.logo-i {
+  color: #fff200;
+}
+
+.logo-xt {
+  color: #ffd700;
+}
+
+.logout-btn {
+  background-color: #fff;
+  color: #ff416c;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.logout-btn:hover {
+  background-color: #ffe6e6;
+}
+
+/* ===== BRANCHES ===== */
+.branches-heading {
+  text-align: center;
+  font-size: 28px;
+  margin: 20px 0;
+  font-weight: 600;
+}
+
+.branches-panel {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.branch-card {
+  background-color: #f0f0f0;
+  padding: 15px 30px;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.branch-card:hover {
+  background-color: #ffccd5;
+  transform: translateY(-3px);
+}
+
+/* ===== YEARS ===== */
+.years-panel {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.year-card {
+  display: inline-block;
+  background-color: #e0e0e0;
+  padding: 12px 20px;
+  margin: 8px;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.year-card:hover {
+  background-color: #ffd6d6;
+  transform: translateY(-3px);
+}
+
+/* ===== SUBJECTS ===== */
+.subjects-panel {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.subject-card {
+  display: inline-block;
+  background-color: #d8f3dc;
+  padding: 12px 25px;
+  margin: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.subject-card:hover {
+  background-color: #b7e4c7;
+  transform: translateY(-3px);
+}
+
+/* ===== UPLOADED MATERIALS ===== */
+.materials-panel {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.materials-panel h4 {
+  margin-bottom: 15px;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.materials-panel ul {
+  list-style: none;
+  padding: 0;
+  display: inline-block;
+  text-align: left;
+  min-width: 300px;
+}
+
+.materials-panel li {
+  background-color: #f4f4f4;
+  margin: 6px 0;
+  padding: 10px 15px;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+.materials-panel li:hover {
+  background-color: #ffe6e6;
+}
+
+.materials-panel a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+.materials-panel a:hover {
+  color: #ff416c;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .branches-panel, .years-panel, .subjects-panel {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .branch-card, .year-card, .subject-card {
+    width: 80%;
+    text-align: center;
+  }
+
+  .logo-text {
+    font-size: 20px;
+  }
+}
