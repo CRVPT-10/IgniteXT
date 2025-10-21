@@ -85,4 +85,3 @@ module.exports = {
   getResourceById,   // Export the new functions
   downloadResource
 };
-

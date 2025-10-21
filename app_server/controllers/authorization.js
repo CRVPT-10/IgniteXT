@@ -13,4 +13,3 @@ const isFaculty = (req, res, next) => {
 module.exports = {
   isFaculty
 };
-

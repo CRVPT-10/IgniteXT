@@ -137,7 +137,7 @@ export class DashboardComponent implements OnInit {
       const url = window.URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = material.filename; // Use original filename
+      a.download = (material.filename ?? material.title ?? 'download.pdf') as string;
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);

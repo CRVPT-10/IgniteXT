@@ -25,8 +25,8 @@ export class BrowseComponent implements OnInit {
 
   constructor(
     private contentService: ContentService,
-    private authService: AuthenticationService, // ✅ Injected
-    private router: Router                       // ✅ Injected
+    private authService: AuthenticationService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {}
@@ -58,8 +58,8 @@ export class BrowseComponent implements OnInit {
   }
 
   logout() {
-    this.authService.clearToken(); // Clear stored JWT
-    this.router.navigate(['/']);    // Redirect to login page
+    this.authService.clearToken();
+    this.router.navigate(['/']);
   }
 
   uploadMaterials() {
@@ -74,5 +74,25 @@ export class BrowseComponent implements OnInit {
           this.uploadedMaterials = [];
         }
       });
+  }
+
+  // ✅ Added download method (fixes your issue)
+  downloadMaterial(material: StudyMaterial): void {
+    this.contentService.downloadMaterial(material._id).subscribe({
+      next: (blob) => {
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = material.filename || material.title || 'download.pdf';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        window.URL.revokeObjectURL(url);
+      },
+      error: (err) => {
+        console.error('Download failed:', err);
+        alert('Unable to download this file. Please try again.');
+      }
+    });
   }
 }

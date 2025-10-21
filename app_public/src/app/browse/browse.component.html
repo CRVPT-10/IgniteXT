@@ -36,7 +36,9 @@
   <h4>Uploaded Materials for {{selectedSubject}}</h4>
   <ul>
     <li *ngFor="let material of uploadedMaterials">
-      <a [href]="material.url" target="_blank">{{ material.filename }}</a>
+      <button class="download-btn" (click)="downloadMaterial(material)">
+  ⬇ Download {{ material.filename }}
+</button>
     </li>
   </ul>
 </div>

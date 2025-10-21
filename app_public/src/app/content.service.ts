@@ -3,15 +3,21 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 export interface StudyMaterial {
-  _id?: string;           // Add _id to match backend
-  filename: string;
-  url?: string;           // optional, because backend serves download via ID
-  branch: string;
-  year: string;
+  _id: string;
+  filename?: string;        // file name
+  title?: string;           // optional title
   subject: string;
+  branch: string;
+  year?: string;            // ✅ Added for year display
+  description?: string;
+  url?: string;             // ✅ Added for file download link
+  fileUrl?: string;         // (in case backend uses fileUrl field)
   uploadedBy: string;
-  uploadedAt: string;
+  uploadedAt?: Date;        // ✅ Added for display in tables
+  createdAt?: Date;         // optional fallback
 }
+
+
 
 @Injectable({
   providedIn: 'root'
